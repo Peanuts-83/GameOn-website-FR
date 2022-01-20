@@ -19,8 +19,10 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal event
+// close modal
 closeBtn.addEventListener("click", closeModal);
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+// Form validation
