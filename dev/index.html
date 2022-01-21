@@ -57,26 +57,25 @@
         <span class="close"></span>
         <div class="modal-body">
 
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+          <form name="reserve" action="#" method="get" onsubmit="return validate();">
 
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" required /><br>
+              <input class="text-control" type="text" id="first" name="prénom" /><br>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" minlength="2" required /><br>
+              <input class="text-control" type="text" id="last" name="nom" /><br>
             </div>
 
             <div class="formData">
               <label for="email">E-mail</label><br>
-              <input class="text-control" type="email" pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-zA-Z0-9]{2,})$" placeholder="email@domain.any" id="email" name="email" required /><br>
-              <!-- pattern pour renforcer la validité de l'email -->
+              <input class="text-control" type="email" placeholder="email@domain.any" id="email" name="email" /><br>
             </div>
 
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" required /><br>
+              <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
             </div>
 
             <div class="formData">
@@ -113,13 +112,13 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked required />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" name="accept" checked required />
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
-              <input class="checkbox-input" type="checkbox" id="checkbox2" />
+              <input class="checkbox-input" type="checkbox" id="checkbox2" name="news" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
                 Je souhaite être prévenu des prochains évènements.
