@@ -63,6 +63,7 @@
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="prénom" /><br>
             </div>
+
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="nom" /><br>
@@ -80,12 +81,12 @@
 
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" placeholder="0" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <input type="number" value="0" class="text-control" id="quantity" name="quantity" />
             </div>
-            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
 
+            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData">
-              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
@@ -112,7 +113,7 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" name="accept" checked required />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" name="accept" checked />
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
