@@ -26,3 +26,11 @@ function closeModal() {
 }
 
 // Form validation
+function validate() {
+  let accept = document.getElementById('checkbox1').value;
+  if (!accept) {
+    alert('woops')
+    return false;
+  }
+
+}
