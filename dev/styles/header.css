@@ -1,8 +1,13 @@
 :root {
-  --red: #ff0000;
+  --magenta: #fe142f;
+  --green: #279e7a;
   --white: #fff;
   --black: #000;
   --grey: #232323;
+  --light-grey: #ccc;
+  --trans-grey: rgba(0, 0, 0, 0.1);
+  --blue: rgba(26, 39, 156, 0.4);
+  --cyan: #3876ac;
   --modal-duration: 0.8s;
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -58,7 +63,7 @@ body {
 }
 
 .topnav a:hover, .topnav a.active {
-  background-color: var(--red);
+  background-color: var(--magenta);
   color: var(--white);
   border-radius: 15px;
   text-decoration: underline;
@@ -67,7 +72,7 @@ body {
 
 .topnav .icon {
   display: none;
-  color: var(--red);
+  color: var(--magenta);
   font-size: 50px;
 }
 
@@ -81,7 +86,7 @@ footer {
 }
 
 .copyrights {
-  color: var(--red);
+  color: var(--magenta);
   padding: 0;
   font-size: 1rem;
   margin: 60px 0 30px;
