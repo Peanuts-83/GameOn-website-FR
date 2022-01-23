@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
   <!--Css -->
+  <link rel="stylesheet" href="./styles/header.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/modal.css" />
 </head>
 
@@ -18,13 +20,13 @@
       <img alt="logo" src="./assets/Logo.png" />
     </div>
     <div class="main-navbar">
+      <a href="#" class="icon" onclick="editNav()">
+        <i class="fa fa-bars"></i>
+      </a>
       <a href="#" class="active"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="#" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
     </div>
   </header>
 
@@ -52,7 +54,7 @@
     </section>
 
 
-    <div class="bground">
+    <section class="bground">
       <div class="content">
         <span class="close"></span>
         <div class="modal-body">
@@ -129,10 +131,17 @@
 
             <input class="btn-submit button" type="submit" value="C'est parti" />
           </form>
-
         </div>
       </div>
-    </div>
+
+      <div class="content confirm-screen">
+        <span class="close close-confirm-screen"></span>
+        <p class="confirm-msg">Merci pour votre inscription</p>
+        <div class="btn-submit button confirm-btn close-confirm-screen">FERMER</div>
+      </div>
+    </section>
+
+
   </main>
 
   <footer>

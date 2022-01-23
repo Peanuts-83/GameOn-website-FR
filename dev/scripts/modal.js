@@ -1,4 +1,15 @@
-// Show/hide nav
+// DOM ELEMENTS //
+const modalbg = document.querySelector(".bground");
+const modalContent = document.querySelector('.content');
+const modalBtn = document.querySelectorAll(".modal-btn");
+const closeBtn = document.querySelector(".close");
+const formData = document.querySelectorAll(".formData");
+const modalBody = document.querySelector('.modal-body');
+const modalSubmit = document.querySelector('btn-submit');
+const modalConfirm = document.querySelector('.confirm-screen');
+const modalCloseConfirm = document.querySelectorAll('.close-confirm-screen');
+
+// SHOW/HIDE NAV //
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -8,31 +19,46 @@ function editNav() {
   }
 }
 
-
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const closeBtn = document.querySelector(".close");
-const submitBtn = document.querySelector('.btn-submit');
-
-
-
-// launch modal
+// LAUNCH MODAL //
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
+  modalContent.style.display = 'block';
 }
 
-// close modal
+// CLOSE MODAL //
 closeBtn.addEventListener("click", closeModal);
 function closeModal() {
   modalbg.style.display = "none";
 }
 
+// SHOW CONFIRMATION MSG //
+document.onload = testUrl();
+function testUrl() {
+  let regex = /index.html\?/;
+  let string = window.location.href;
+  console.log(string)
+  if (regex.test(string)) {
+    console.log('CONFIRM OK');
+    modalbg.style.display = 'block';
+    modalContent.style.display = 'none';
+    modalConfirm.style.display = 'flex';
+  }
+}
 
-// Form validation
+// CLOSE CONFIRMATION MSG //
+modalCloseConfirm.forEach(btn => btn.addEventListener('click', closeConfirmation));
+function closeConfirmation() {
+  window.location = "index.html";
+}
+
+
+
+/////////////////////
+// FORM VALIDATION //
 function validate() {
+
+  // DOM ELEMENTS
   const myForm = document.forms["reserve"];
   const first = myForm["prénom"];
   const last = myForm["nom"];
@@ -41,6 +67,8 @@ function validate() {
   const quantity = myForm["quantity"];
   const locations = myForm["location"];
   const accept = myForm["accept"];
+
+  // VALIDATEUR DES DONNEES UTILISATEURS
   let validator = {
     first: false,
     last: false,
@@ -51,7 +79,8 @@ function validate() {
     accept: false
   }
 
-  // validation inputs texte
+
+  // VALIDATION STRINGS (NOM, PRÉNOM)
   // required: {string} && string.length >= 2
   const regex1 = new RegExp('^[a-z]{2,}', 'i');
   const texts = [first, last];
@@ -66,9 +95,9 @@ function validate() {
     }
   }
 
-  // validation email
-  // required: {string} && /^([a-z0-9]+)@([a-z0-9]+)\.([a-z]{2,})$/gi
-  const regex2 = new RegExp('^([a-z0-9]+)@([a-z0-9]+)\.([a-z]{2,})$', 'i');
+  // VALIDATION EMAIL
+  // required: {string} && 'mail@domain.xx'
+  const regex2 = new RegExp('[0-9a-z._%+-]+@[a-z0-9.-]+\\.[a-z]{2,64}', 'i');
   let emailVal = email.value;
   console.log(regex2.test(email.value))
 
@@ -80,7 +109,7 @@ function validate() {
     validator.email = true;
   }
 
-  // validation birthdate
+  // VALIDATION BIRTHDATE
   // required: {string} && yyyy-dd-mm
   const regex3 = new RegExp('^([0-9]{4})[\/-]{1}([0-9]{1,2})[\/-]{1}([0-9]{1,2})$');
   let birthdateVal = birthdate.value;
@@ -93,7 +122,7 @@ function validate() {
     validator.birthdate = true;
   }
 
-  // validation quantity
+  // VALIDATION QUANTITY (NBRE DE TOURNOIS)
   // required: {number} && 0 <= x < 100
   let quantityVal = quantity.value;
 
@@ -105,8 +134,8 @@ function validate() {
     validator.quantity = true;
   }
 
-  // validation location
-  // required: {only 1 checked}
+  // VALIDATION LOCATION (LIEU DE TOURNOI A VENIR)
+  // required: {checked} && 1 checked
   let locationChecked = Array.from(locations).some(location => location.checked);
 
   if (!locationChecked) {
@@ -117,7 +146,7 @@ function validate() {
     validator.locations = true;
   }
 
-  // validation accept conditions
+  // VALIDATION ACCEPT (CONDITIONS GALES)
   // required: {checked}
   let acceptVal = accept.checked;
 
@@ -130,51 +159,51 @@ function validate() {
   }
 
 
-  // Gestion des comments d'erreur
-  function setComment(target) {
-    console.log('FALSE VALUE', target.name, target.value)
-    // remove old comment
-    if (target.parentElement.lastChild.className == 'comment') {
-      target.parentElement.lastChild.remove();
-    }
+  // GESTION DES MESSAGES D ERREUR
 
-    // new comment
-    let comment = document.createElement("div");
+  function setComment(target) {
+    // COMMENT DANS .formData
+    let comment = target.parentElement;
+    console.log(comment)
+
     switch (target.attributes.type.value) {
       case 'text':
-        comment.innerText = `Veuillez entrer 2 caractères ou plus pour le champ du ${target.name}`;
+        comment.setAttribute('data-error', `Veuillez entrer 2 caractères ou plus pour le champ du ${target.name}`);
         break;
       case 'email':
-        comment.innerText = `Un ${target.name} correct est requis (format 'mail@domain.xx')`;
+        comment.setAttribute('data-error', `Un ${target.name} correct est requis (format 'mail@domain.xx')`);
         break;
       case 'date':
-        comment.innerText = `La date de naissance est requise (format jj/mm/aaaa)`;
+        comment.setAttribute('data-error', `La date de naissance est requise (format jj/mm/aaaa)`);
         break;
       case 'number':
-        comment.innerText = `Le nombre de concours doit être un chiffre entre 0 et 99`;
+        comment.setAttribute('data-error', `Le nombre de concours doit être un chiffre entre 0 et 99`);
         break;
       case 'radio':
-        comment.innerText = `Veuillez choisir un concours`;
+        comment.setAttribute('data-error', `Veuillez choisir un concours`);
         break;
       case 'checkbox':
-        comment.innerText = `Veuillez accepter les conditions d'utilisation`;
+        comment.setAttribute('data-error', `Veuillez accepter les conditions d'utilisation`);
         break;
       default:
-        comment.innerText = `saisie invalide`;
+        comment.setAttribute('data-error', `saisie invalide`);
         break;
     }
-    comment.className = 'comment';
-    target.parentElement.appendChild(comment);
+    comment.setAttribute('data-error-visible', true);
   }
 
   function unsetComment(target) {
-    // remove old comment
-    if (target.parentElement.lastChild.className == 'comment') {
-      target.parentElement.lastChild.remove();
-    }
-
+    let comment = target.parentElement;
+    comment.setAttribute('data-error-visible', false);
   }
 
-  // Return true si tous les validateurs ok
-  return Object.values(validator).every(bool => bool == true) ? true : false;
+
+
+  /////////////////////////////////////////////////
+  // RETURN TRUE SI TOUS LES VALIDATEURS SONT OK //
+  if (Object.values(validator).every(bool => bool == true)) {
+    return true;
+  } else {
+    return false;
+  }
 }
