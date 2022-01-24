@@ -101,13 +101,13 @@ main {
   }
   .hero-headline {
     word-break: normal;
-    font-size: 12vw;
+    font-size: 10vw;
     white-space: normal;
     width: 100%;
   }
   .hero-text {
     width: 100%;
-    font-size: 5vw;
+    font-size: 4vw;
   }
   .hero-img img {
     border-radius: 10px;
