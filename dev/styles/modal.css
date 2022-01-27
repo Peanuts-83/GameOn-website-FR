@@ -41,7 +41,7 @@
   font-style: italic;
   color: var(--magenta);
 }
-
+/* fond bleu modal */
 .bground {
   display: none;
   position: fixed;
@@ -53,7 +53,7 @@
   overflow: auto;
   background-color: var(--blue);
 }
-
+/* modal content */
 .content {
   margin: 5% auto;
   width: 100%;
@@ -93,6 +93,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
+/* message d'erreur */
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -111,12 +112,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid var(--magenta);
 }
-/*
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: magenta;
-} */
+/* FORMS style */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -316,14 +312,4 @@ input[data-error]::after {
   justify-content: center;
   max-width: 30%;
   margin: 5%;
-}
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
-  }
 }

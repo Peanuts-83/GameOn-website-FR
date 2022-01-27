@@ -16,8 +16,6 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 a:visited {
@@ -69,7 +67,7 @@ body {
   text-decoration: underline;
   text-underline-offset: 7px;
 }
-
+/* Icon nav small screen < 768px */
 .topnav .icon {
   display: none;
   color: var(--magenta);

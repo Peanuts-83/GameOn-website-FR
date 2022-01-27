@@ -1,5 +1,3 @@
-
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -53,6 +51,7 @@ main {
   margin-top: 57px;
   padding: 0;
 }
+
 .btn-signup {
   outline: none;
   text-transform: capitalize;
@@ -74,13 +73,13 @@ main {
   display: none;
 }
 
+
 /* LIMITATION TAILLE TITRE HERO */
 @media screen and (min-width: 1400px) {
   .hero-headline {
     font-size: 6rem;
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .hero-section {

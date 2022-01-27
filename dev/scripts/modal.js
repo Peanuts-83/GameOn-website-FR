@@ -35,21 +35,39 @@ function closeModal() {
 // SHOW CONFIRMATION MSG //
 document.onload = testUrl();
 function testUrl() {
-  let regex = /index.html\?/;
+  let regex = /index.html\?(.)+/;
   let string = window.location.href;
-  console.log(string)
+
   if (regex.test(string)) {
-    console.log('CONFIRM OK');
+    // hide/show modal parts
     modalbg.style.display = 'block';
     modalContent.style.display = 'none';
     modalConfirm.style.display = 'flex';
+
+    // build Result Object & show in console.log
+    let result = {};
+    result.firstName = string.match(modalReg('prenom'))[0].split('=')[1].slice(0, -1);
+    result.lastName = string.match(modalReg('nom'))[0].split('=')[1].slice(0, -1);
+    result.email = string.match(modalReg('email'))[0].split('=')[1].slice(0, -1);
+    result.birthdate = string.match(modalReg('birthdate'))[0].split('=')[1].slice(0, -1);
+    result.quantity = string.match(modalReg('quantity'))[0].split('=')[1].slice(0, -1);
+    result.location = string.match(modalReg('location'))[0].split('=')[1].slice(0, -1);
+    result.accept = true;
+    /\&news=/g.test(string) ? result.news = true : result.news = false;
+    console.log(result)
   }
+}
+
+// REGEXP FOR WINDOW.LOCATION.HREF //
+function modalReg(str) {
+  const regexp = new RegExp(`[\?\&]${str}=([a-z\-\._+%0-9])+\&?`, 'gi');
+  return regexp;
 }
 
 // CLOSE CONFIRMATION MSG //
 modalCloseConfirm.forEach(btn => btn.addEventListener('click', closeConfirmation));
 function closeConfirmation() {
-  window.location = "index.html";
+  window.location.href = './index.html'
 }
 
 
@@ -60,7 +78,7 @@ function validate() {
 
   // DOM ELEMENTS
   const myForm = document.forms["reserve"];
-  const first = myForm["prénom"];
+  const first = myForm["prenom"];
   const last = myForm["nom"];
   const email = myForm["email"];
   const birthdate = myForm["birthdate"];
@@ -99,7 +117,6 @@ function validate() {
   // required: {string} && 'mail@domain.xx'
   const regex2 = new RegExp('[0-9a-z._%+-]+@[a-z0-9.-]+\\.[a-z]{2,64}', 'i');
   let emailVal = email.value;
-  console.log(regex2.test(email.value))
 
   if (!regex2.test(emailVal)) {
     setComment(email);
@@ -164,7 +181,6 @@ function validate() {
   function setComment(target) {
     // COMMENT DANS .formData
     let comment = target.parentElement;
-    console.log(comment)
 
     switch (target.attributes.type.value) {
       case 'text':

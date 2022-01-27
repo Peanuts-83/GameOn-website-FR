@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Reservation</title>
+  <title>GameOn - Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <!-- Fonts externes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/modal.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -23,7 +25,7 @@
       <a href="#" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
-      <a href="#" class="active"><span>Détails de l'évènement</span></a>
+      <a href="#"><span>Détails de l'évènement</span></a> <!-- class="active" supprimé / en attente -->
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
@@ -41,10 +43,12 @@
           Vous aimez jouer ? Notre prochain évènement gaming est ouvert
           aux réservations... Places limitées !
         </p>
+        <!-- btn large screen > 768px -->
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
       </div>
+      <!-- btn small screen < 768px -->
       <div class="hero-img">
         <img src="./assets/bg_img.jpg" alt="img" />
       </div>
@@ -53,17 +57,18 @@
       </button>
     </section>
 
-
+    <!-- fond bleu modal -->
     <section class="bground">
+      <!-- début modal -->
       <div class="content">
         <span class="close"></span>
         <div class="modal-body">
-
-          <form name="reserve" action="#" method="get" onsubmit="return validate();">
+          <!-- formulaire modal -->
+          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
 
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="prénom" /><br>
+              <input class="text-control" type="text" id="first" name="prenom" /><br>
             </div>
 
             <div class="formData">
@@ -133,7 +138,7 @@
           </form>
         </div>
       </div>
-
+      <!-- écran de confirmation -->
       <div class="content confirm-screen">
         <span class="close close-confirm-screen"></span>
         <p class="confirm-msg">Merci pour votre inscription</p>
