@@ -1,4 +1,3 @@
-/*TODO: topnav mobil version */
 .modal-btn {
   font-size: 15px;
   background: var(--magenta);
@@ -16,7 +15,7 @@
 }
 
 
-/* Modal form */
+/* MODAL FORM */
 
 .button {
   background: var(--magenta);
@@ -27,7 +26,6 @@
   cursor: pointer;
   font-size: 16px;
 }
-
 .button:hover {
   background: var(--cyan);
 }
@@ -42,7 +40,7 @@
   color: var(--magenta);
 }
 
-/* fond bleu modal */
+/* BG MODAL BLUE */
 .bground {
   display: none;
   position: fixed;
@@ -54,7 +52,8 @@
   overflow: auto;
   background-color: var(--blue);
 }
-/* modal content */
+
+/* MODAL CONTENT */
 .content {
   margin: 5% auto;
   width: 100%;
@@ -94,7 +93,8 @@ input {
   font-size: 20px;
   height: 48px;
 }
-/* message d'erreur */
+
+/* ERROR MSG */
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -113,6 +113,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid var(--magenta);
 }
+
 /* FORMS style */
 .checkbox-label,
 .checkbox2-label {
@@ -178,6 +179,7 @@ input {
   left: 21%;
   top: 19%;
 }
+
 .close {
   position: absolute;
   right: 15px;
@@ -203,6 +205,7 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
+
 .btn-submit,
 .btn-signup {
   background: var(--magenta);
@@ -224,14 +227,14 @@ input {
   margin: 0;
   margin-top: 59px;
 }
-/* custom select styles */
+
+/* CUSTOM SELECT STYLES */
 .custom-select {
   position: relative;
   font-family: Arial;
   font-size: 1.1rem;
   font-weight: normal;
 }
-
 .custom-select select {
   display: none;
 }
@@ -315,6 +318,7 @@ input {
   margin: 5%;
 }
 
+
 @media screen and (max-width: 768px){
   .bground {
     position: relative;
@@ -332,5 +336,4 @@ input {
   .confirm-msg {
     font-size: 20px;
   }
-
 }
