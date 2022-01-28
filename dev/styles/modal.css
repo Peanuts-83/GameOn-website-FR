@@ -41,6 +41,7 @@
   font-style: italic;
   color: var(--magenta);
 }
+
 /* fond bleu modal */
 .bground {
   display: none;
@@ -298,13 +299,12 @@ input {
 /* CONFIRMATION MESSAGE */
 .confirm-screen {
   display: none;
-  height: 70vh;
+  height: 90%;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .confirm-msg {
-  padding: 50% 0;
   font-size: 30px;
   color: var(--white);
 }
@@ -317,7 +317,20 @@ input {
 
 @media screen and (max-width: 768px){
   .bground {
-    display: none;
+    position: relative;
+    background-color: transparent;
+  }
+  .content {
+    margin: 0;
+    max-width: unset;
+    height: 100%;
+  }
+  .confirm-screen {
+    padding: auto;
+    height: calc(100vh - 90px);
+  }
+  .confirm-msg {
+    font-size: 20px;
   }
 
 }

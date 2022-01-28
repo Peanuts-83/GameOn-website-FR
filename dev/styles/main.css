@@ -8,6 +8,11 @@ main {
   text-align: justify;
 }
 
+.margin-off {
+  padding: unset;
+  margin: unset;
+}
+
 .hero-section {
   border-radius: 10px;
   display: grid;
@@ -72,7 +77,8 @@ main {
 
 @media screen and (max-width: 768px) {
   .hero-section {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
     box-shadow: unset;
   }
   .hero-content {
@@ -98,9 +104,9 @@ main {
     width: 100%;
     font-size: 5vw;
   }
-  .hero-img img {
+  .hero-img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 0;
   }
   .hero-section > .btn-signup {
     display: block;

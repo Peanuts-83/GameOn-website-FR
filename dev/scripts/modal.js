@@ -1,4 +1,7 @@
 // DOM ELEMENTS //
+const main = document.querySelector("main");
+const heroSection = document.querySelector(".hero-section");
+const footer = document.querySelector("footer");
 const modalbg = document.querySelector(".bground");
 const modalContent = document.querySelector('.content');
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -19,17 +22,46 @@ function editNav() {
   }
 }
 
+// SHOW/HIDE BG ELEMENTS ON RESIZE WINDOW IF MODAL IS ON //
+window.addEventListener('resize', showHideBackground);
+function showHideBackground() {
+  let w = window.innerWidth;
+  if (w > 768 && modalbg.style.display == 'block') {
+    heroSection.style.display = 'grid';
+    footer.style.display = 'block';
+    main.className = '';
+  } else if (w <= 768 && modalbg.style.display == 'block') {
+    heroSection.style.display = 'none';
+    footer.style.display = 'none';
+    main.className = 'margin-off';
+  }
+}
+
 // LAUNCH MODAL //
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
+  let w = window.innerWidth;
   modalbg.style.display = "block";
   modalContent.style.display = 'block';
+  // if screen XS: HIDE BG ELEMENTS
+  if (w <= 768) {
+    heroSection.style.display = 'none';
+    footer.style.display = 'none';
+    main.className = 'margin-off';
+  }
 }
 
 // CLOSE MODAL //
 closeBtn.addEventListener("click", closeModal);
 function closeModal() {
+  let w = window.innerWidth;
   modalbg.style.display = "none";
+  // if screen XL: SHOW BG ELEMENTS
+  if (w <= 768) {
+    heroSection.style.display = 'grid';
+    footer.style.display = 'block';
+    main.className = '';
+  }
 }
 
 // SHOW CONFIRMATION MSG //
@@ -40,6 +72,12 @@ function testUrl() {
 
   if (regex.test(string)) {
     // hide/show modal parts
+    let w = window.innerWidth;
+    if (w <= 768) {
+      heroSection.style.display = 'none';
+      footer.style.display = 'none';
+      main.className = 'margin-off';
+    }
     modalbg.style.display = 'block';
     modalContent.style.display = 'none';
     modalConfirm.style.display = 'flex';

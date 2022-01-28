@@ -16,6 +16,7 @@
 
 * {
   box-sizing: border-box;
+  /*border: 1px dashed red;*/
 }
 
 a:visited {
@@ -92,7 +93,7 @@ footer {
   .header-logo img {
     margin-left: 2vw;
     margin-right: 50vw;
-    width: 30vw;
+    width: 120px;
     min-width: 120px;
   }
   .main-navbar span{
@@ -100,6 +101,7 @@ footer {
   }
   .topnav {
     position: relative;
+    margin-bottom: 20px;
   }
   .topnav a {
     display: none;
