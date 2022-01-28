@@ -49,7 +49,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 100vw;
+  height: 100%;
   overflow: auto;
   background-color: var(--blue);
 }
@@ -312,4 +312,10 @@ input {
   justify-content: center;
   max-width: 30%;
   margin: 5%;
+}
+
+@media screen and (max-width = 768px){
+  .bground {
+    display: none;
+  }
 }
