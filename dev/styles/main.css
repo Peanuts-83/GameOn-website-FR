@@ -1,5 +1,5 @@
 main {
-  font-size: 130%;
+  font-size: .9rem;
   font-weight: bolder;
   color: var(--black);
   padding: 0 2vw;
@@ -45,12 +45,12 @@ main {
   position: relative;
   z-index: 1;
 }
-.hero-headline {
+.hero-headline, h1 {
   font-size: 9vw;
   font-weight: normal;
   white-space: nowrap;
 }
-.hero-text {
+.hero-text, h2 {
   width: 140%;
   font-weight: normal;
   margin-top: 10%;
