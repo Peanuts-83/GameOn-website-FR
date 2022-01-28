@@ -19,6 +19,10 @@
   /*border: 1px dashed red;*/
 }
 
+a {
+  color: var(--black);
+}
+
 a:visited {
   color: var(--black);
 }
@@ -127,7 +131,7 @@ body {
     top: -15px;
   }
 
-  
+
   .copyrights {
     font-size: .5rem;
     margin-top: 20px ;
