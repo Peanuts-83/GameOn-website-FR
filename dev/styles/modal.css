@@ -5,8 +5,8 @@
   margin: auto;
   padding: 2em;
   color: var(--white);
-  padding: 0.75rem 2.5rem;
-  border-radius: 1rem;
+  padding: 0.75em 2.5em;
+  border-radius: 1em;
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ label {
   font-size: 14px;
   font-weight: normal;
   display: inline-block;
-  margin: 15px 0 10px 0;
+  margin: 10px 0 5px 0;
 }
 input {
   padding: 8px;
@@ -97,7 +97,7 @@ input {
 /* ERROR MSG */
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: var(--magenta);
   display: block;
   margin-top: 7px;
@@ -213,7 +213,7 @@ input {
   display: block;
   margin: 40px auto;
   border-radius: 7px;
-  font-size: 1rem;
+  font-size: 1em;
   padding: 12px 82px;
   color: var(--white);
   cursor: pointer;
@@ -223,7 +223,7 @@ input {
   outline: none;
   text-transform: capitalize;
   outline: none;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   padding: 15px 23px;
   margin: 0;
   margin-top: 59px;
@@ -233,7 +233,7 @@ input {
 .custom-select {
   position: relative;
   font-family: Arial;
-  font-size: 1.1rem;
+  font-size: 1.1em;
   font-weight: normal;
 }
 .custom-select select {
