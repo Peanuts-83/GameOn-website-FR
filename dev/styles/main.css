@@ -2,10 +2,8 @@ main {
   font-size: 130%;
   font-weight: bolder;
   color: var(--black);
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
+  padding: 0 2vw;
+  margin: 0 20px;
   border-radius: 2rem;
   text-align: justify;
 }
@@ -48,18 +46,10 @@ main {
 .hero-text {
   width: 140%;
   font-weight: normal;
-  margin-top: 57px;
+  margin-top: 10%;
   padding: 0;
 }
 
-.btn-signup {
-  outline: none;
-  text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px;
-}
 .hero-img {
   grid-column: span 8;
   background: #333 url('../assets/bg_img.jpg') no-repeat ;
@@ -86,9 +76,9 @@ main {
     box-shadow: unset;
   }
   .hero-content {
+    padding: 0;
     background: var(--white);
     color: var(--black);
-    padding: 15px;
     min-width: 0;
   }
   .hero-content::after {
@@ -98,6 +88,7 @@ main {
     display: none;
   }
   .hero-headline {
+    margin: 0;
     word-break: normal;
     font-size: 10vw;
     white-space: normal;
@@ -105,7 +96,7 @@ main {
   }
   .hero-text {
     width: 100%;
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .hero-img img {
     border-radius: 10px;
