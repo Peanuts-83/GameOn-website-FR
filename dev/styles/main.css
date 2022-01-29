@@ -72,7 +72,7 @@ main {
 /* LIMITATION HERO TITLE SIZE */
 @media screen and (min-width: 1400px) {
   .hero-headline {
-    font-size: 6em;
+    font-size: 5em;
   }
 }
 
