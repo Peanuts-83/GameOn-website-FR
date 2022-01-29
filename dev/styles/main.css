@@ -53,7 +53,7 @@ main {
 .hero-text {
   width: 140%;
   font-weight: normal;
-  margin-top: 10%;
+  margin: 10% 0;
   padding: 0;
 }
 .hero-img {
