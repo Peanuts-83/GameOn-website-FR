@@ -165,11 +165,14 @@ function validate() {
   }
 
   // VALIDATION BIRTHDATE
-  // required: {string} && yyyy-dd-mm
+  // required: {string} && yyyy-dd-mm && age > 12 years
   const regex3 = new RegExp('^([0-9]{4})[\/-]{1}([0-9]{1,2})[\/-]{1}([0-9]{1,2})$');
-  let birthdateVal = birthdate.value;
+  const now = new Date();
+  let birthVal = birthdate.value;
+  let [year, month, day] = birthVal.split('-');
+  const birthday = new Date(year, month-1, day);
 
-  if (!regex3.test(birthdateVal)) {
+  if (!regex3.test(birthVal) || birthday > new Date(now.setFullYear(now.getFullYear() - 12)) ) {
     setComment(birthdate);
     validator.birthdate = false;
   } else {
@@ -228,7 +231,7 @@ function validate() {
         comment.setAttribute('data-error', `Un ${target.name} correct est requis (format 'mail@domain.xx')`);
         break;
       case 'date':
-        comment.setAttribute('data-error', `La date de naissance est requise (format jj/mm/aaaa)`);
+        comment.setAttribute('data-error', `Un age de 12 ans minimum est requis (format jj/mm/aaaa)`);
         break;
       case 'number':
         comment.setAttribute('data-error', `Le nombre de concours doit être un chiffre entre 0 et 99`);
