@@ -85,14 +85,18 @@ function testUrl() {
     // build Result Object & show in console.log
     let result = {};
     result.firstName = string.match(modalReg('prenom'))[0].split('=')[1].slice(0, -1);
+    result.firstName = result.firstName.replace('+', ' ');
     result.lastName = string.match(modalReg('nom'))[0].split('=')[1].slice(0, -1);
+    result.lastName = result.lastName.replace('+', ' ');
     result.email = string.match(modalReg('email'))[0].split('=')[1].slice(0, -1);
+    result.email = result.email.replace('%40', '@');
     result.birthdate = string.match(modalReg('birthdate'))[0].split('=')[1].slice(0, -1);
     result.quantity = string.match(modalReg('quantity'))[0].split('=')[1].slice(0, -1);
     result.location = string.match(modalReg('location'))[0].split('=')[1].slice(0, -1);
+    result.location = result.location.replace('+', ' ');
     result.accept = true;
     /\&news=/g.test(string) ? result.news = true : result.news = false;
-    console.log(result)
+    console.table(result)
   }
 }
 

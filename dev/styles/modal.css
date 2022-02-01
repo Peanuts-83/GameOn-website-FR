@@ -337,4 +337,7 @@ input {
   .confirm-msg {
     font-size: 20px;
   }
+  .btn-submit {
+    margin-bottom: 100%;
+  }
 }
